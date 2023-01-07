@@ -7,58 +7,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed;
-	listint_t *temp = *head;
+	listint_t *temp = *head, *temp2 = *head;
+	int length, *list_arr, i;
 
-	while (temp)
-	{
-		reversed->n = temp->n;
-	}
-
-	if (head == NULL)
-	{
+	if (!(*head))
 		return (1);
-	}
 
-	reverse_listint(&reversed);
+	for (length = 0; temp2; length++)
+		temp2 = temp2->next;
 
-	while (temp)
+	list_arr = malloc(sizeof(int) * length);
+	if (!list_arr)
+		exit(100);
+
+	for (i = 0; temp; temp = temp->next, i++)
+		list_arr[i] = temp->n;
+
+	for (i = 0; i < (length / 2); i++)
 	{
-		printf("comparing %d and %d\n", temp->n, reversed->n);
-
-		if (temp->n != reversed->n)
-		{
+		if (list_arr[i] != list_arr[length - 1 - i])
 			return (0);
-		}
-
-		temp = temp->next;
-		reversed = reversed->next;
 	}
 
+	free(list_arr);
 	return (1);
-}
-
-	/* reverse_listint(&reversed); */
-/**
- * reverse_listint - reverses a list int
- * @head: the list
- *
- * Return: a pointer to the first node of the reveresd list
- */
-listint_t *reverse_listint(listint_t **head)
-{
-	listint_t *before = NULL, *next;
-
-	while (*head)
-	{
-		next = (*head)->next;
-		(*head)->next = before;
-		before = *head;
-
-		*head = next;
-	}
-
-	*head = before;
-
-	return (*head);
 }
