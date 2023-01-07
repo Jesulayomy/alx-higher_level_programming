@@ -4,7 +4,7 @@ def print_matrix_integer(matrix=[[]]):
         column = len(row)
         for element in row:
             print("{}".format(element), end="")
-        if column > 1:
-            print(" ", end="")
-            column -= 1
+            if column > 1:
+                print(" ", end="")
+                column -= 1
         print()
