@@ -1,0 +1,58 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``matrix_divided`` from the ``2-matrix_divided`` module:
+
+	Setup:
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+	>>> matrix1 = [[9, 6, 3], "STR"]
+	>>> matrix2 = [[1, 2, 3], [4, 5]]
+	>>> matrix3 = [(1, 2), (3, 4)]
+	>>> matrix4 = [[1, 2, 3], 1]
+	>>> matrix5 = []
+	>>> matrix6 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+	>>> div = 3
+	>>> div1 = 10
+	>>> div2 = 0
+
+	Now tests:
+	>>> print(matrix_divided(matrix, div))
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	>>> print(matrix_divided(matrix, div2))
+	Traceback (most recent call last):
+		Line ??: raise ZeroDivisionError
+	ZeroDivisionError: division by zero
+	>>> print(matrix_divided(matrix1, div))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> print(matrix_divided(matrix2, div))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: Each row of the matrix must have the same size
+	>>> print(matrix_divided(matrix3, div))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> print(matrix_divided(matrix4, div))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> print(matrix_divided(matrix5, div))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> print(matrix_divided(matrix6, div))
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+	>>> print(matrix_divided(matrix6, div1))
+	[[0.1, 0.2, 0.3], [0.4, 0.5, 0.6], [0.7, 0.8, 0.9]]
+	>>> print(matrix_divided(matrix6, div2))
+	Traceback (most recent call last):
+		Line ??: raise ZeroDivisionError
+	ZeroDivisionError: division by zero
