@@ -4,31 +4,43 @@ The ``0-add_integer`` module
 Using ``add_integer``
 -------------------
 
-This is an example text file in reStructuredText format.  First import
-``add_integer`` from the ``0-add_integer`` module:
+First import ``add_integer`` from the ``0-add_integer`` module:
 
 	>>> add_integer = __import__('0-add_integer').add_integer
 
-	Now use it:
-
+Single input a (b defaults to 98):
 	>>> add_integer(0)
 	98
+
+Two zeros:
 	>>> add_integer(0, 0)
 	0
+
+Using a single float:
 	>>> add_integer(5.1)
 	103
+
+A float and Zero:
 	>>> add_integer(3.1, 0)
 	3
-	>>> add_integer(0, 35)
-	35
+
+Negative number and float:
+	>>> add_integer(-10, 35.3)
+	25
+
+Using invalud type - str:
 	>>> add_integer(5, "str")
 	Traceback (most recent call last):
 	    Line 17: raise TypeError("b must be an integer")
 	TypeError: b must be an integer
+
+Single invalud type - str:
 	>>> add_integer('a')
 	Traceback (most recent call last):
 	    Line 15: raise TypeError("a must be an integer")
 	TypeError: a must be an integer
+
+No input:
 	>>> add_integer(None)
 	Traceback (most recent call last):
 	TypeError: a must be an integer
