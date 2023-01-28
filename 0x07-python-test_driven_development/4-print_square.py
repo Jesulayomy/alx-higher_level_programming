@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 """
+
     Module for a function that prints a square
+
+    using the character #
+
 """
 
 
 def print_square(size):
     """
+
         Prints a square of l and b = size
+
+        size must be an integer or a float
+
     """
 
     if isinstance(size, float) and size < 0:

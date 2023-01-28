@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 """
+
     This module defines a function that adds two integers
+
     It also raises errors for appropriate exceptions
+
 """
 
 
 def add_integer(a, b=98):
     """
-        adds two integers a and b, b is defaulted to a value
+
+        Adds two integers a and b, b is defaulted to a value
+
         of 98 and both a and b must be ints or floats
+
     """
 
     if not isinstance(a, int) and not isinstance(a, float):
