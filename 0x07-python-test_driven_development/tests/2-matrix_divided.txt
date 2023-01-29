@@ -4,8 +4,7 @@ The ``2-matrix_divided`` module
 Using ``matrix_divided``
 -------------------
 
-This is an example text file in reStructuredText format.  First import
-``matrix_divided`` from the ``2-matrix_divided`` module:
+First import ``matrix_divided`` from the ``2-matrix_divided`` module:
 
 	Setup:
 
@@ -65,3 +64,21 @@ This is an example text file in reStructuredText format.  First import
 	Traceback (most recent call last):
 		Line ??: raise ZeroDivisionError
 	ZeroDivisionError: division by zero
+
+	>>> print(matrix_divided(matrix, 0.1))
+	[[10.0, 20.0, 30.0], [40.0, 50.0, 60.0]]
+
+	>>> print(matrix_divided([[1, 2, 3], [4, 5]], 10))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: Each row of the matrix must have the same size
+	
+	>>> print(matrix_divided([[1, 2, "hello"], [4, 5, "world"]], 10))
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[2.1, 5.8], [], [10, -3]], 8)
+	Traceback (most recent call last):
+	        	      ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats

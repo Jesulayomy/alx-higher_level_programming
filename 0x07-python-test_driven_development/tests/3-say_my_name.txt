@@ -15,19 +15,40 @@ This is an example text file in reStructuredText format.  First import
 	>>> number = 98
 
 	Now tests:
+
 	>>> say_my_name(first_name, last_name)
 	My name is Bond James
+
 	>>> say_my_name(first_name)
 	My name is Bond 
+
 	>>> say_my_name(number, last_name)
 	Traceback (most recent call last):
 		Line ??: raise TypeError
 	TypeError: first_name must be a string
+
 	>>> say_my_name(number)
 	Traceback (most recent call last):
 		Line ??: raise TypeError
 	TypeError: first_name must be a string
+
 	>>> say_my_name(first_name, number)
 	Traceback (most recent call last):
 		Line ??: raise TypeError
 	TypeError: last_name must be a string
+
+	>>> say_my_name(first_name, None)
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: last_name must be a string
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+		Line ??: raise TypeError
+	TypeError: first_name must be a string
+
+	>>> say_my_name()
+	Traceback (most recent call last):
+		...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+

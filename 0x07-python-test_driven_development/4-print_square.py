@@ -3,7 +3,9 @@
 
     Module for a function that prints a square
 
-    using the character #
+    3. Print square
+
+    Write a function that prints a square with the character #.
 
 """
 

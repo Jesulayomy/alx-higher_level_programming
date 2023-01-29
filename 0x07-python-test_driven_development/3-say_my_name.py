@@ -3,7 +3,9 @@
 
     This modules prints a name in a given format
 
-    My name is <first_name> <last_name>
+    2. Say my name
+
+    Write a function that prints My name is <first name> <last name>
 
 """
 

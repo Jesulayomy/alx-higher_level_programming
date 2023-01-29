@@ -42,3 +42,26 @@ text_indentation from the module ``5-text_indentation``:
 	<BLANKLINE>
 	Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 	>>> text_indentation("")
+	>>> text_indentation("   Hello")
+	Hello
+	>>> text_indentation("Hello            ")
+	Hello
+	>>> text_indentation("   Hello            .     ")
+	Hello            .
+	<BLANKLINE>
+	>>> text_indentation(71)
+	Traceback (most recent call last):
+		Line 17: raise TypeError("b must be an integer")
+	TypeError: text must be a string
+	>>> text_indentation(["hello", "world"])
+	Traceback (most recent call last):
+		Line 17: raise TypeError("b must be an integer")
+	TypeError: text must be a string
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+		Line 17: raise TypeError("b must be an integer")
+	TypeError: text must be a string
+	>>> text_indentation()
+	Traceback (most recent call last):
+		Line 17: raise TypeError("b must be an integer")
+	TypeError: text_indentation() missing 1 required positional argument: 'text'

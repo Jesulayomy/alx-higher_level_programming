@@ -5,6 +5,10 @@
 
     each elements of 'matrix' by 'div'
 
+    1. Divide a matrix
+
+    Write a function that divides all elements of a matrix.
+
 """
 
 
@@ -14,6 +18,13 @@ def matrix_divided(matrix, div):
         Divides each element in a matrix by div, and handles
 
         the necessary errors
+
+        Matrix must be a list of lists of integers or floats
+        Each row of the matrix must be of the same size
+        Div must be a number (integer or float)
+        Div can’t be equal to 0
+        All elements of the matrix should be divided by div, rounded to 
+        2 decimal places 
 
     """
 
@@ -26,6 +37,8 @@ def matrix_divided(matrix, div):
         raise TypeError(err)
     for member in matrix:
         if not isinstance(member, list):
+            raise TypeError(err)
+        if member == []:
             raise TypeError(err)
         if len(member) != prev:
             raise TypeError("Each row of the matrix must have the same size")
