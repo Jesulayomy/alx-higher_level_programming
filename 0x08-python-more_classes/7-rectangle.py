@@ -18,6 +18,9 @@ class Rectangle:
             property setter def height(self, value): to set it:
     """
 
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         """
 
@@ -27,6 +30,7 @@ class Rectangle:
 
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -116,7 +120,7 @@ class Rectangle:
             return rectangle
 
         for i in range(self.height):
-            rectangle += '#' * self.width + '\n'
+            rectangle += print_symbol * self.width + '\n'
 
         rectangle = rectangle[:-1]
         return rectangle
@@ -139,4 +143,5 @@ class Rectangle:
 
         """
 
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
