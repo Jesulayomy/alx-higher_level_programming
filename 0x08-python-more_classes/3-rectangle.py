@@ -10,7 +10,7 @@ class Rectangle:
         1. Real definition of a rectangle
         Write a class Rectangle that defines a rectangle by:
         (based on 0-rectangle.py)
-        - Private instance attribute: width: 
+        - Private instance attribute: width:
             property def width(self): to retrieve it
             property setter def width(self, value):
         - Private instance attribute: height:
@@ -80,7 +80,7 @@ class Rectangle:
         """
 
             Public instance method: def area(self): that returns
-            
+
             the rectangle area
 
         """
