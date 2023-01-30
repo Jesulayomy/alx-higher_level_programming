@@ -166,12 +166,12 @@ class Rectangle:
         else:
             return rect_2
 
-        @classmethod
-        def square(cls, size=0):
-            """
+    @classmethod
+    def square(cls, size=0):
+        """
 
-                Returns a new Rectangle instance/Object
+            Returns a new Rectangle instance/Object
 
-            """
+        """
 
-            return cls(size, size)
+        return cls(size, size)
