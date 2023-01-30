@@ -87,7 +87,7 @@ class Rectangle:
 
         return self.width * self.height
 
-    def perimiter(self):
+    def perimeter(self):
         """
 
             Public instance method: def perimeter(self):
