@@ -5,6 +5,10 @@
 
 
 def pascal_triangle(n):
+    """
+        uses loops to replicate pascal triangle behaviour
+    """
+
     if n <= 0:
         return []
     start = [1, 1]
