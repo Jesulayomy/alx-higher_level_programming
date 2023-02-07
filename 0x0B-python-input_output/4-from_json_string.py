@@ -6,6 +6,7 @@
 
 import json
 
+
 def from_json_string(my_str):
     """
         string to object converter
