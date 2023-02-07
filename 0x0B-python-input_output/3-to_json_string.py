@@ -12,6 +12,6 @@ def to_json_string(my_obj):
         cinverts an object to its json representation
     """
 
-    string = json.dumps
+    string = json.dumps(my_obj)
 
     return string
