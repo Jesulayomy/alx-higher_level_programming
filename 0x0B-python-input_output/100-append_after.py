@@ -11,11 +11,14 @@ def append_after(filename="", search_string="", new_string=""):
         after every line where search_string is found
     """
 
-    with open(filename, 'r+', encoding="utf-8") as fid:
+    with open(filename, 'r', encoding="utf-8") as fid:
         content = ""
         for line in fid:
-            content += line
-            if line.find(search_string):
+            if line.find(search_string) >= 0:
+                content += line
                 content += new_string
+            else:
+                content += line
 
+    with open(filename, 'w', encoding="utf-8") as fid:
         fid.write(content)
