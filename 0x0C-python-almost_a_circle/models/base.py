@@ -47,7 +47,7 @@ class Base:
 
         filename = "{}.json".format(__cls.name__)
         with open(filename, 'w', encoding="utf-8") as fid:
-            if list_objs is None or list_objs = []:
+            if list_objs is None or list_objs == []:
                 json.dump("[]", fid)
             else:
                 res = cls.to_json_string(list_objs)
