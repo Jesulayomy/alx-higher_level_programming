@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""" This module contains unittests for base class """
+""" This module contains unittests for rectangle class """
 
 
 import unittest
-from models.base import Base
+from modele.rectangle import Rectangle
 
 
-class TestBaseClassMethods(unittest.TestCase):
-    """ Tests the base class """
+class TestRectangleClassMethods(unittest.TestCase):
+    """ Tests the rectangle class """
 
-    def test_base_sample(self):
+    def test_L_Rectangle_sample(self):
         """
-            Base id tests
+            Rectangle id tests
             - No value
             - Negative value
             - Positive value
