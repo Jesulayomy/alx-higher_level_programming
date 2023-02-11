@@ -154,7 +154,7 @@ class Rectangle(Base):
 
         if args is not None and len(args) != 0:
             list_instance = ['id', 'width', 'height', 'x', 'y']
-            for i in len(args):
+            for i in range(len(args)):
                 setattr(self, list_instance[i], args[i])
         else:
             for instance, value in kwargs.items():

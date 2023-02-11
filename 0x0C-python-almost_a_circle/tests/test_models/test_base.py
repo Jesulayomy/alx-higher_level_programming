@@ -30,3 +30,8 @@ class TestBaseClassMethods(unittest.TestCase):
         self.assertEqual(b3.id, 7)
         self.assertEqual(b4.id, 0)
         self.assertEqual(b5.id, 2)
+
+    def tearDown(self):
+        """ disposes variables """
+
+        pass
