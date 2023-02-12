@@ -9,6 +9,11 @@
 """
 
 
+import csv
+import json
+import os.path
+
+
 class Base:
     """
         The base class of thhe project.
@@ -88,3 +93,56 @@ class Base:
             list_instances.append(cls.create(**list_in_class[idx]))
 
         return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ saves serialized csv format """
+
+        filename = "{}.csv".format(cls.__name__)
+        if filename == "Rectangle.csv":
+            list_dict = [0, 0, 0, 0, 0]
+            list_keys = ['id', 'width', 'height', 'x', 'y']
+        else:
+            list_dict = [0, 0, 0, 0]
+            list_keys = ['id', 'size', 'x', 'y']
+
+        list_of_lists = []
+        if not list_objs:
+            pass
+        else:
+            for objt in list_objs:
+                for idx in range(len(list_keys)):
+                    list_dict[idx] = objt.to_dictionary()[list_keys[idx]]
+                list_of_lists.append(list_dict[:])
+
+        with open(filename, 'w') as fid:
+            to_file = csv.writer(fid)
+            to_file.writerows(list_of_lists)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ loads deserialized csv """
+
+        filename = "{}.csv".format(cls.__name__)
+        if os.path.exists(filename) is False:
+            return []
+        with open(filename, 'r', encoding="utf-8") as fid:
+            values = csv.reader(fid)
+            csv_list = list(values)
+        if cls.__name__ == "Rectangle":
+            list_keys = ['id', 'width', 'height', 'x', 'y']
+        else:
+            list_keys = ['id', 'size', 'x', 'y']
+
+        list_lists = []
+        for element in csv_list:
+            csv_dict = {}
+            for idx in enumerate(element):
+                csv_dict[list_keys[idx[0]]] = int(idx[1])
+            list_lists.append(csv_dict)
+
+        list_ins = []
+        for index in range(len(list_lists)):
+            list_ins.append(cls.create(**list_lists[index]))
+
+        return list_ins

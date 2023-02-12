@@ -270,12 +270,70 @@ class TestRectangleClassMethods(unittest.TestCase):
         self.assertEqual(r24.x, 2)
         self.assertEqual(r24.y, 1)
 
-    def test_L_Rectangle_8_bad_updates(self):
+    def test_L_Rectangle_9_bad_updates(self):
         """ test update """
 
         r24 = Rectangle(6, 2, 0, 0, 304)
         with self.assertRaises(TypeError):
             r24.update(305, "14", 1, 2, 1)
+
+    def test_L_Rectangle_9_update_args(self):
+        """ test update """
+
+        r25 = Rectangle(6, 2, 0, 0, 304)
+        r25.update(307)
+        self.assertEqual(r25.id, 307)
+
+    def test_L_Rectangle_10_no_update_args(self):
+        """ test update """
+
+        r24 = Rectangle(6, 2, 0, 0, 304)
+        r24.update()
+        self.assertEqual(r24.width, 6)
+        r24.update("4")
+        self.assertEqual(r24.width, 6)
+
+    def test_L_Rectangle_11_update_kargs(self):
+        """ test update """
+
+        r27 = Rectangle(6, 2, 0, 0, 304)
+        r27.update(id=310, width=4, height=4, x=1, y=1)
+        self.assertEqual(r27.id, 310)
+        self.assertEqual(r27.width, 4)
+        self.assertEqual(r27.height, 4)
+        self.assertEqual(r27.x, 1)
+        self.assertEqual(r27.y, 1)
+
+    def test_L_Rectangle_12_update_kargs_some(self):
+        """ test update """
+
+        r27 = Rectangle(6, 2, 0, 0, 304)
+        r27.update(id=311, x=1, y=1)
+        self.assertEqual(r27.id, 311)
+        self.assertEqual(r27.width, 6)
+        self.assertEqual(r27.height, 2)
+        self.assertEqual(r27.x, 1)
+        self.assertEqual(r27.y, 1)
+
+    def test_L_Rectangle_13_dictionary(self):
+        """ Test the dictionary representation of the rectangle """
+
+        r28 = Rectangle(3, 2)
+        dict_rep = r28.to_dictionary()
+        self.assertEqual(
+                dict_rep,
+                {'id': 1, 'width': 3, 'height': 2, 'x': 0, 'y': 0}
+                )
+
+    def test_L_Rectangle_13_dictionary_full(self):
+        """ Test the dictionary representation of the rectangle """
+
+        r28 = Rectangle(3, 2, 1, 1, 3)
+        dict_rep = r28.to_dictionary()
+        self.assertEqual(
+                dict_rep,
+                {'id': 3, 'width': 3, 'height': 2, 'x': 1, 'y': 1}
+                )
 
     def test_new_rectangle(self):
         """ Test new rectangle """
