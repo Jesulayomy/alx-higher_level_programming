@@ -26,22 +26,22 @@ class Rectangle(Base):
         """ Initializes the class """
 
         super().__init__(id)
-        if not isinstance(width, int):
+        if type(height) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
         self.__width = width
-        if not isinstance(height, int):
+        if type(width) is not int:
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
         self.__height = height
-        if not isinstance(x, int):
+        if type(x) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
         self.__x = x
-        if not isinstance(y, int):
+        if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
@@ -57,7 +57,7 @@ class Rectangle(Base):
     def width(self, value):
         """ Sets the width of the private instance """
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -74,7 +74,7 @@ class Rectangle(Base):
     def height(self, value):
         """ Sets the height of the private instance """
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -91,7 +91,7 @@ class Rectangle(Base):
     def x(self, value):
         """ Sets the height of the private instance """
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -108,7 +108,7 @@ class Rectangle(Base):
     def y(self, value):
         """ Sets the height of the private instance """
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")

@@ -45,10 +45,46 @@ class Base:
             string representation of list_objs to a file:
         """
 
-        filename = "{}.json".format(__cls.name__)
+        filename = "{}.json".format(cls.__name__)
         with open(filename, 'w', encoding="utf-8") as fid:
             if list_objs is None or list_objs == []:
                 json.dump("[]", fid)
             else:
                 res = cls.to_json_string(list_objs)
                 json.dump(res, fid)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ returns the list of the JSON string representation json_string """
+
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with its attributes set """
+
+        new = cls(1, 1)
+        new.update(dictionary)
+
+    @classmethod
+    def load_from_file(cls):
+        """ loads a list of instances froom a file """
+
+        filename = "{}.json".format(cls.__name__)
+
+        if not os.path.exists(filename):
+            return []
+
+        with open(filename, 'r', encoding="utf-8") as fid:
+            list_as_string = f.read()
+
+        list_in_class = cls.from_json_string(list_as_string)
+        list_instances = []
+
+        for idx in range(len(list_in_class)):
+            list_instances.append(cls.create(**list_in_class[idx]))
+
+        return list_instances
