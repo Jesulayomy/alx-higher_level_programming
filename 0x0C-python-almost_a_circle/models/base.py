@@ -12,12 +12,13 @@
 import csv
 import json
 import turtle
+import time
 import os.path
 
 
 class Base:
     """
-        The base class of thhe project.
+        The base class of the project.
         Manages id and object instances
     """
 
@@ -87,7 +88,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """ loads a list of instances froom a file """
+        """ loads a list of instances from a file """
 
         filename = "{}.json".format(cls.__name__)
 
@@ -165,13 +166,12 @@ class Base:
             the turtle module
         """
 
-        window = turtle.screen()
+        window = turtle.Screen()
         window.title("Rectangles and Squares")
         window.bgcolor("black")
         window.setup(width=1600, height=900)
         window.tracer(0)
 
-        idx = 0
         start = -700
         anchor = 300
 
@@ -188,7 +188,7 @@ class Base:
             sqr.icon.shape("square")
             sqr.icon.color("blue")
             sqr.goto(start, anchor)
-            start += (rect.width + 10)
+            start += (sqr.width + 10)
             sqr.shapesize(stretch_wid=sqr.width, stretch_len=sqr.height)
 
         window.update()
