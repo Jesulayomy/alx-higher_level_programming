@@ -167,7 +167,7 @@ class Base:
         """
 
         window = turtle.Screen()
-        window.title("Rectangles and Squares")
+        window.title("Rectangles(Top, Red) and Squares(Bottom, Blue)")
         window.bgcolor("black")
         window.setup(width=1600, height=900)
         window.tracer(0)
@@ -178,18 +178,20 @@ class Base:
         for rect in list_rectangles:
             rect.icon.shape("square")
             rect.icon.color("red")
-            rect.goto(start, anchor)
-            start += (rect.width + 10)
-            rect.shapesize(stretch_wid=rect.width, stretch_len=rect.height)
+            rect.icon.penup()
+            rect.icon.goto(start, anchor)
+            start += (rect.width * 40 + 10)
+            rect.icon.shapesize(stretch_wid=rect.width, stretch_len=rect.height)
 
         start = -700
         anchor = -300
         for sqr in list_squares:
             sqr.icon.shape("square")
             sqr.icon.color("blue")
-            sqr.goto(start, anchor)
-            start += (sqr.width + 10)
-            sqr.shapesize(stretch_wid=sqr.width, stretch_len=sqr.height)
+            sqr.icon.penup()
+            sqr.icon.goto(start, anchor)
+            start += (sqr.width * 40 + 10)
+            sqr.icon.shapesize(stretch_wid=sqr.width, stretch_len=sqr.height)
 
         window.update()
         time.sleep(30)
