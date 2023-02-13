@@ -6,12 +6,17 @@
     - class constructor
     The goal of it is to manage id attribute in all your future
     classes and to avoid duplicating the same code (by extension, same bugs)
+    Turtle module gguves errors, add import turtle and uncmment function to
+    use. only been able to test using draw_test_draw.py on pycharm
+    import turtle
+
+    add this line in __init__
+    self.icon = turtle.Turtle()
 """
 
 
 import csv
 import json
-import turtle
 import time
 import os.path
 
@@ -34,7 +39,6 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-        self.icon = turtle.Turtle()
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -166,6 +170,7 @@ class Base:
             the turtle module
         """
 
+        """
         window = turtle.Screen()
         window.title("Rectangles(Top, Red) and Squares(Bottom, Blue)")
         window.bgcolor("black")
@@ -181,7 +186,10 @@ class Base:
             rect.icon.penup()
             rect.icon.goto(start, anchor)
             start += (rect.width * 40 + 10)
-            rect.icon.shapesize(stretch_wid=rect.width, stretch_len=rect.height)
+            rect.icon.shapesize(
+                stretch_wid=rect.width,
+                stretch_len=rect.height
+                )
 
         start = -700
         anchor = -300
@@ -195,3 +203,4 @@ class Base:
 
         window.update()
         time.sleep(30)
+        """
