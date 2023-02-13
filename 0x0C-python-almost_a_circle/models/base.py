@@ -119,7 +119,7 @@ class Base:
             list_dict = [0, 0, 0, 0, 0]
             list_keys = ['id', 'width', 'height', 'x', 'y']
         else:
-            list_dict = [0, 0, 0, 0]
+            list_dict = ['0', '0', '0', '0']
             list_keys = ['id', 'size', 'x', 'y']
 
         list_of_lists = []

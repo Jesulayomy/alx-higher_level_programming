@@ -1468,7 +1468,7 @@ class TestRectangleClassMethods(unittest.TestCase):
         self.assertTrue(rect_file.is_file())
 
         with open(rect_file, "r") as f:
-            self.assertEqual(f.read(), "")
+            self.assertEqual(f.read(), '')
 
     def test_rect_save_to_file_csv_more_args(self):
         """  test save to file csv with more args than expected """
