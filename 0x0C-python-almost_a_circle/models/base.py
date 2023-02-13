@@ -11,6 +11,7 @@
 
 import csv
 import json
+import turtle
 import os.path
 
 
@@ -32,6 +33,7 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+        self.icon = turtle.Turtle()
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -155,3 +157,39 @@ class Base:
             list_ins.append(cls.create(**list_lists[index]))
 
         return list_ins
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+            draws the rectangles and squares using
+            the turtle module
+        """
+
+        window = turtle.screen()
+        window.title("Rectangles and Squares")
+        window.bgcolor("black")
+        window.setup(width=1600, height=900)
+        window.tracer(0)
+
+        idx = 0
+        start = -700
+        anchor = 300
+
+        for rect in list_rectangles:
+            rect.icon.shape("square")
+            rect.icon.color("red")
+            rect.goto(start, anchor)
+            start += (rect.width + 10)
+            rect.shapesize(stretch_wid=rect.width, stretch_len=rect.height)
+
+        start = -700
+        anchor = -300
+        for sqr in list_squares:
+            sqr.icon.shape("square")
+            sqr.icon.color("blue")
+            sqr.goto(start, anchor)
+            start += (rect.width + 10)
+            sqr.shapesize(stretch_wid=sqr.width, stretch_len=sqr.height)
+
+        window.update()
+        time.sleep(30)
