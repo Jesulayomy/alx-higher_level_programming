@@ -51,28 +51,37 @@ class Base:
         """
 
         filename = "{}.json".format(cls.__name__)
+        list_dic = []
+
+        if not list_objs:
+            pass
+        else:
+            for i in range(len(list_objs)):
+                list_dic.append(list_objs[i].to_dictionary())
+
+        lists = cls.to_json_string(list_dic)
+
         with open(filename, 'w', encoding="utf-8") as fid:
-            if list_objs is None or list_objs == []:
-                json.dump("[]", fid)
-            else:
-                res = cls.to_json_string(list_objs)
-                json.dump(res, fid)
+            fid.write(lists)
 
     @staticmethod
     def from_json_string(json_string):
         """ returns the list of the JSON string representation json_string """
 
-        if json_string is None or json_string == "":
+        if not json_string:
             return []
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
         """ returns an instance with its attributes set """
 
-        new = cls(1, 1)
-        new.update(dictionary)
+        if cls.__name__ == "Rectangle":
+            new = cls(1, 1)
+        else:
+            new = cls(1)
+        new.update(**dictionary)
+        return new
 
     @classmethod
     def load_from_file(cls):
@@ -84,7 +93,7 @@ class Base:
             return []
 
         with open(filename, 'r', encoding="utf-8") as fid:
-            list_as_string = f.read()
+            list_as_string = fid.read()
 
         list_in_class = cls.from_json_string(list_as_string)
         list_instances = []

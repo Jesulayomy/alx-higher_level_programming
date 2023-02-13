@@ -57,14 +57,14 @@ class Square(Rectangle):
 
         if args is not None and len(args) != 0:
             attributes = ['id', 'size', 'x', 'y']
-            for i in len(args):
+            for i in range(len(args)):
                 if attributes[i] == 'size':
                     setattr(self, 'width', args[i])
                     setattr(self, 'height', args[i])
                 else:
                     setattr(self, attributes[i], args[i])
         else:
-            for name, value in kwargs.iteritems():
+            for name, value in kwargs.items():
                 if name == 'size':
                     setattr(self, 'width', value)
                     setattr(self, 'height', value)
