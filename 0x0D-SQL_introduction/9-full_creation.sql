@@ -15,4 +15,4 @@ INSERT INTO second_table
 VALUES (3, 'Bob', 14);
 -- row 4
 INSERT INTO second_table
-VALUES (4, 'Geroge', 8);
+VALUES (4, 'George', 8);
