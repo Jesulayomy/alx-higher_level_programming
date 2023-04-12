@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 
 const argNoPath = process.argv.slice(2);
 const num = Number(argNoPath[0]);
