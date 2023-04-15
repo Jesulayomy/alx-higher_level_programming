@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 """
-    This module filters states from the database
-    hbtn_0e_0_usa with name starting with user input argv4
+    This is a script that lists all cities from the database hbtn_0e_4_usa
 """
+
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -18,14 +18,17 @@ if __name__ == "__main__":
     cur = hb.cursor()
     cur.execute("""
         SELECT
-            id, name
+            cities.id, cities.name, states.name
         FROM
+            cities
+        INNER JOIN
             states
-        WHERE
-            name = '{}'
+        ON
+            cities.state_id=states.id
         ORDER BY
-            states.id
-        """.format(sys.argv[4]))
+            cities.id
+        """)
+
     rows = cur.fetchall()
     for row in rows:
         print(row)
