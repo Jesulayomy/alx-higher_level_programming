@@ -19,14 +19,17 @@ if __name__ == "__main__":
     cur = hb.cursor()
     cur.execute("""
             SELECT
-                id, name
+                *
             FROM
                 states
             WHERE
-                name LIKE 'N%'
-            ORDER BY
-                states.id
+                convert(`name` USING Latin1)
+            COLLATE
+                Latin1_General_CS
+            LIKE
+                'N%';
             """)
+
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    for state in rows:
+        print(state)
