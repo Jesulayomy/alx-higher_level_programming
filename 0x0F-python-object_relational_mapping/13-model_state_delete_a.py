@@ -24,9 +24,12 @@ if __name__ == "__main__":
                 dbname),
             pool_pre_ping=True)
 
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.query(State).where(State.name.contains('a')).delete()
+    states = session.query(State).filter(State.name.like('%a%')).all()
+
+    for state in states:
+        state.delete(state)
+
     session.commit()

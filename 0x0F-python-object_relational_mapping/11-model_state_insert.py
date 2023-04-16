@@ -24,7 +24,6 @@ if __name__ == "__main__":
                 dbname),
             pool_pre_ping=True)
 
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -32,3 +31,5 @@ if __name__ == "__main__":
 
     session.add(new_state)
     session.commit()
+
+    print(new_state.id)
