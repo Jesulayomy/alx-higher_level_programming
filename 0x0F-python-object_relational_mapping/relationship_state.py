@@ -5,7 +5,7 @@
 """
 
 from sqlalchemy import Column, Integer, String, MetaData
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
 from relationship_city import Base, City
 
