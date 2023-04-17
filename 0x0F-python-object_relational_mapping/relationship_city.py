@@ -4,7 +4,7 @@
     This module contains the city class and Base
 """
 
-from model_state import Base, State
+from relationship_state import Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 
 
