@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-    Lists all State objects, and corresponding City
-    objects, contained in the database hbtn_0e_101_usa
+    Lists all City objects, contained
+    in the database hbtn_0e_101_usa
 """
 
 if __name__ == "__main__":
@@ -25,15 +25,15 @@ if __name__ == "__main__":
                 dbname),
             pool_pre_ping=True)
 
-    Base.metadata.create_all(engine)
+    """
+        Base.metadata.create_all(engine)
+    """
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).outerjoin(City).order_by(
-            State.id, City.id).all()
+    states = session.query(State).join(City).order_by(City.id).all()
 
     for state in states:
-        print(f"{state.id}: {state.name}")
         for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
+            print(f"{city.id}: {city.name} -> {state.name}")

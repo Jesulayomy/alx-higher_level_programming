@@ -6,9 +6,10 @@
 
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, MetaData
 
-Base = declarative_base()
+md = MetaData()
+Base = declarative_base(metadata=md)
 
 
 class State(Base):
