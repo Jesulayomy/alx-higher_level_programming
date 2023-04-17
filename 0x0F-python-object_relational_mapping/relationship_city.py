@@ -4,9 +4,10 @@
     This module contains the city class and Base
 """
 
-from relationship_state import Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class City(Base):

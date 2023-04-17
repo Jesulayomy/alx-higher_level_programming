@@ -7,7 +7,7 @@
 
 if __name__ == "__main__":
     import sys
-    from relationship_state import Base, State
+    from relationship_state import State
     from relationship_city import City
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
@@ -32,8 +32,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).join(City).order_by(City.id).all()
+    cities = session.query(City).order_by(City.id)
 
-    for state in states:
-        for city in state.cities:
-            print(f"{city.id}: {city.name} -> {state.name}")
+    for city in cities:
+        print(f"{city.id}: {city.name} -> {city.state.name}")

@@ -7,8 +7,8 @@
 
 if __name__ == "__main__":
     import sys
-    from relationship_state import Base, State
-    from relationship_city import City
+    from relationship_state import State
+    from relationship_city import Base, City
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
 
@@ -30,11 +30,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new_state = State(name='California')
-    new_city = City(name='San Francisco')
+    new = City(name="San Francisco", state=State(name="California"))
 
-    new_state.cities.append(new_city)
-
-    session.add(new_state)
-    session.add(new_city)
+    session.add(new)
     session.commit()
