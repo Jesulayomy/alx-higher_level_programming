@@ -2,6 +2,7 @@
 
 """ Finds the prak in the list """
 
+
 def find_peak(list_of_integers):
     if list_of_integers == []:
         return None
