@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
     try:
         q = sys.argv[1]
-    except:
+    except Exception:
         pass
 
     result = requests.post("http://0.0.0.0:5000/search_user", {'q': q})
