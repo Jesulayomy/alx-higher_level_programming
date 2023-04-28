@@ -11,6 +11,5 @@ if __name__ == '__main__':
 
     req = urllib.request.Request(sys.argv[1])
     with urllib.request.urlopen(req) as result:
-        details = result.headers
-
-    print(dict(details.items())['X-Request-Id'])
+        details = result.info()
+        print(details.get('X-Request-Id'))
