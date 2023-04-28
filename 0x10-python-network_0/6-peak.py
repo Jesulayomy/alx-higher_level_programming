@@ -27,4 +27,3 @@ def find_peak(list_of_integers):
     if il[cen + 1] > il[cen - 1]:
         return find_peak(il[cen:])
     return find_peak(il[:cen])
-
