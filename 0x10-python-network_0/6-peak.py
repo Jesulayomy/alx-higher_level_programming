@@ -4,6 +4,8 @@
 
 
 def find_peak(list_of_integers):
+    """ Finds the peak of the list o f integers """
+
     if list_of_integers == []:
         return None
 
@@ -25,3 +27,4 @@ def find_peak(list_of_integers):
     if il[cen + 1] > il[cen - 1]:
         return find_peak(il[cen:])
     return find_peak(il[:cen])
+
