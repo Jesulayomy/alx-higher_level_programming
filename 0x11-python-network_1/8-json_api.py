@@ -3,8 +3,8 @@
 """ post req to http://0.0.0.0:5000/search_user """
 
 if __name__ == '__main__':
-    import requests
     import sys
+    import requests
 
     q = ""
 
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     except Exception:
         pass
 
-    result = requests.post("http://0.0.0.0:5000/search_user", {'q': q})
+    result = requests.post("http://0.0.0.0:5000/search_user", {"q": q})
 
     try:
         json_rep = result.json()
@@ -23,5 +23,5 @@ if __name__ == '__main__':
             print("[{}] {}".format(
                 json_rep.get('id'),
                 json_rep.get('name')))
-    except ValueError:
+    except Exception:
         print("Not a valid JSON")
