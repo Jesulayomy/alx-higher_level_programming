@@ -12,7 +12,8 @@ window.onload = function () {
 
 function greet () {
   const lang = $('INPUT#language_code').val();
-  $.get('https://fourtonfish.com/hellosalut/?lang=' + lang, function (data, tStatus) {
+  const link = 'https://fourtonfish.com/hellosalut/?lang=';
+  $.get(link + lang, function (data, tStatus) {
     $('DIV#hello').text(data.hello);
   });
 }
